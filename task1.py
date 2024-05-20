@@ -24,11 +24,14 @@ def process_request():
         # Якщо черга порожня, вивести повідомлення
         print("The queue is empty. No requests to process.")
 
-# Головний цикл програми
-while True:
-    # Виконати генерацію заявок
-    generate_request()
-    # Виконати обробку заявок
-    process_request()
-    # Затримка перед наступною ітерацією (імітація реального часу обробки)
-    time.sleep(1)
+# Головний цикл програми з обробкою KeyboardInterrupt для виходу з програми
+try:
+    while True:
+        # Виконати генерацію заявок
+        generate_request()
+        # Виконати обробку заявок
+        process_request()
+        # Затримка перед наступною ітерацією (імітація реального часу обробки)
+        time.sleep(1)
+except KeyboardInterrupt:
+    print("\nProgram interrupted by the user. Exiting...")
